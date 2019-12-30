@@ -11,10 +11,13 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\Filesystem\Exception;
+namespace Viserio\Contract\Finder\Exception;
 
-use Exception as BaseException;
+use Throwable;
 
-class FileNotFoundException extends BaseException implements Exception
+/**
+ * Exception interface for all exceptions thrown by the component.
+ */
+interface Exception extends Throwable
 {
 }

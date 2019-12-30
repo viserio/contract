@@ -11,8 +11,10 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\Filesystem\Exception;
+namespace Viserio\Contract\Finder\Exception;
 
-class EmptyDirectoryException extends RuntimeException
+use LogicException as BaseLogicException;
+
+class LogicException extends BaseLogicException implements Exception
 {
 }
