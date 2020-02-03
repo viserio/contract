@@ -11,8 +11,8 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\OptionsResolver;
+namespace Viserio\Contract\Config;
 
-interface RequiresComponentConfigId extends RequiresComponentConfig
+interface RequiresConfig
 {
 }

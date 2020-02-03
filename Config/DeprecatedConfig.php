@@ -11,17 +11,17 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\OptionsResolver;
+namespace Viserio\Contract\Config;
 
-interface DeprecatedOptions
+interface DeprecatedConfig
 {
     /**
-     * Deprecate options that will be no more used in the next version.
+     * Deprecate config key that will be no more used in the next version.
      * Key should be available in getMandatoryOptions or getDefaultOptions.
      *
      * The deprecation message supports a sprintf replacer for the key.
      *
      * @return array
      */
-    public static function getDeprecatedOptions(): array;
+    public static function getDeprecatedConfig(): iterable;
 }

@@ -11,12 +11,12 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\OptionsResolver;
+namespace Viserio\Contract\Config;
 
-interface ProvidesOptionsComment
+interface ProvidesConfigComment
 {
     /**
-     * Returns a list of options comments.
+     * Returns a list of config comments based on the config key.
      *
      * @example [
      *      'foo' => 'comment',
@@ -25,7 +25,7 @@ interface ProvidesOptionsComment
      *      ]
      * ]
      *
-     * @return array list with option comments, can be nested
+     * @return array list with config comments, can be nested
      */
-    public static function getOptionComments(): array;
+    public static function getConfigComments(): iterable;
 }

@@ -11,13 +11,8 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\OptionsResolver\Exception;
+namespace Viserio\Contract\Config;
 
-use Throwable;
-
-/**
- * Exception interface for all exceptions thrown by the component.
- */
-interface Exception extends Throwable
+interface RequiresComponentConfigId extends RequiresComponentConfig
 {
 }

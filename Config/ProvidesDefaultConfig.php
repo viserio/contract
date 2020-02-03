@@ -11,14 +11,14 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\Container\Argument;
+namespace Viserio\Contract\Config;
 
-interface ConditionArgument extends Argument
+interface ProvidesDefaultConfig
 {
     /**
-     * Returns a callback to manipulate definition.
+     * Returns a list of default config for this class.
      *
-     * @return callable the given function should look like function ($definition) {...}
+     * @return array list with default options and values, can be nested
      */
-    public function getCallback(): callable;
+    public static function getDefaultConfig(): iterable;
 }

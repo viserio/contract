@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Viserio\Contract\Config\Exception;
 
-use Exception as BaseException;
+use LogicException as BaseLogicException;
 
-class FileNotFoundException extends BaseException implements Exception
+class LogicException extends BaseLogicException implements Exception
 {
 }

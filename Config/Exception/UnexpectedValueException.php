@@ -11,7 +11,7 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\OptionsResolver\Exception;
+namespace Viserio\Contract\Config\Exception;
 
 use Throwable;
 use UnexpectedValueException as BaseUnexpectedValueException;

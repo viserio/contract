@@ -11,14 +11,14 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\Container\Argument;
+namespace Viserio\Contract\Config;
 
-interface ConditionArgument extends Argument
+interface RequiresMandatoryConfig
 {
     /**
-     * Returns a callback to manipulate definition.
+     * Return mandatory config which must be available.
      *
-     * @return callable the given function should look like function ($definition) {...}
+     * @return array mandatory config, can be nested
      */
-    public function getCallback(): callable;
+    public static function getMandatoryConfig(): iterable;
 }

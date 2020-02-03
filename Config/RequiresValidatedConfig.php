@@ -11,9 +11,9 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\OptionsResolver;
+namespace Viserio\Contract\Config;
 
-interface RequiresValidatedOption extends RequiresConfig
+interface RequiresValidatedConfig extends RequiresConfig
 {
     public const VALIDATE_RESOURCE = 'resource';
     public const VALIDATE_CALLABLE = 'callable';
@@ -39,9 +39,9 @@ interface RequiresValidatedOption extends RequiresConfig
      * Array have the following signature:
      *        ['string'],
      *        ['string', 'null'], for more then one validator check;
-     *        [RequiresValidatedOption::VALIDATE_STRING]
+     *        [RequiresValidatedConfig::VALIDATE_STRING]
      *
      * @return array
      */
-    public static function getOptionValidators(): array;
+    public static function getConfigValidators(): iterable;
 }

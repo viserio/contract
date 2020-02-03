@@ -11,8 +11,10 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\OptionsResolver;
+namespace Viserio\Contract\Config\Exception;
 
-interface RequiresConfigId extends RequiresConfig
+use RuntimeException as BaseRuntimeException;
+
+class RuntimeException extends BaseRuntimeException implements Exception
 {
 }

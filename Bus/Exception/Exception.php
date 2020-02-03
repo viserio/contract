@@ -11,10 +11,13 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\OptionsResolver\Exception;
+namespace Viserio\Contract\Bus\Exception;
 
-use RuntimeException;
+use Throwable;
 
-class InvalidValidatorException extends RuntimeException implements Exception
+/**
+ * Exception interface for all exceptions thrown by the component.
+ */
+interface Exception extends Throwable
 {
 }

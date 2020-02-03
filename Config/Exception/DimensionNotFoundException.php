@@ -11,43 +11,40 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\OptionsResolver\Exception;
+namespace Viserio\Contract\Config\Exception;
 
 use OutOfBoundsException;
 use Throwable;
-use Viserio\Contract\OptionsResolver\RequiresComponentConfig as RequiresComponentConfigContract;
-use Viserio\Contract\OptionsResolver\RequiresComponentConfigId as RequiresComponentConfigIdContract;
-use Viserio\Contract\OptionsResolver\RequiresConfigId as RequiresConfigIdContract;
+use Viserio\Contract\Config\RequiresComponentConfig as RequiresComponentConfigContract;
+use Viserio\Contract\Config\RequiresComponentConfigId as RequiresComponentConfigIdContract;
+use Viserio\Contract\Config\RequiresConfigId as RequiresConfigIdContract;
 
-class OptionNotFoundException extends OutOfBoundsException implements Exception
+class DimensionNotFoundException extends OutOfBoundsException implements Exception
 {
     /**
-     * Create a new.
+     * Create a new DimensionNotFoundException instance.
      *
      * @param string         $class
      * @param string         $currentDimension Current configuration key
-     * @param null|string    $configId
+     * @param null|string    $id
      * @param int            $code
      * @param null|Throwable $previous
      */
     public function __construct(
         string $class,
         ?string $currentDimension,
-        ?string $configId,
+        ?string $id,
         int $code = 0,
         ?Throwable $previous = null
     ) {
         $position = [];
         $interfaces = \class_implements($class);
-        $dimensions = isset($interfaces[RequiresComponentConfigContract::class]) ? $class::getDimensions() : [];
+        $dimensions = \array_key_exists(RequiresComponentConfigContract::class, $interfaces) ? $class::getDimensions() : [];
 
-        $hasConfigIdInterface = (
-            isset($interfaces[RequiresConfigIdContract::class])
-            || isset($interfaces[RequiresComponentConfigIdContract::class])
-        );
+        $hasId = \array_key_exists(RequiresConfigIdContract::class, $interfaces) || \array_key_exists(RequiresComponentConfigIdContract::class, $interfaces);
 
-        if ($hasConfigIdInterface && $configId !== null) {
-            $dimensions[] = $configId;
+        if ($hasId && $id !== null) {
+            $dimensions[] = $id;
         }
 
         foreach ($dimensions as $dimension) {
@@ -58,9 +55,9 @@ class OptionNotFoundException extends OutOfBoundsException implements Exception
             }
         }
 
-        $message = 'No options set for configuration [%s] in class [%s].';
+        $message = 'No dimension configuration was set or found for [%s] in class [%s].';
 
-        if ($hasConfigIdInterface && $configId === null && \count($dimensions) === \count($position)) {
+        if ($hasId && $id === null && \count($dimensions) === \count($position)) {
             $message = 'The configuration [%s] needs a config id in class [%s].';
         }
 

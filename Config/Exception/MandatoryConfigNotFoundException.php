@@ -11,12 +11,12 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\OptionsResolver\Exception;
+namespace Viserio\Contract\Config\Exception;
 
 use OutOfBoundsException;
 use Throwable;
 
-class MandatoryOptionNotFoundException extends OutOfBoundsException implements Exception
+class MandatoryConfigNotFoundException extends OutOfBoundsException implements Exception
 {
     /**
      * Create a new MandatoryOptionNotFound exception.
